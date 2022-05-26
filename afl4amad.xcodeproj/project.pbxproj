@@ -14,6 +14,8 @@
 		E321F534283C7059004B6D95 /* afl4amadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E321F533283C7059004B6D95 /* afl4amadTests.swift */; };
 		E321F53E283C7059004B6D95 /* afl4amadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E321F53D283C7059004B6D95 /* afl4amadUITests.swift */; };
 		E321F540283C7059004B6D95 /* afl4amadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E321F53F283C7059004B6D95 /* afl4amadUITestsLaunchTests.swift */; };
+		E3F9A37B283F46C600F65E5A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F9A37A283F46C600F65E5A /* ProfileView.swift */; };
+		E3F9A37D283F5AF900F65E5A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F9A37C283F5AF900F65E5A /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		E321F539283C7059004B6D95 /* afl4amadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = afl4amadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E321F53D283C7059004B6D95 /* afl4amadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = afl4amadUITests.swift; sourceTree = "<group>"; };
 		E321F53F283C7059004B6D95 /* afl4amadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = afl4amadUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E3F9A37A283F46C600F65E5A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E3F9A37C283F5AF900F65E5A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 				E321F524283C7057004B6D95 /* ContentView.swift */,
 				E321F526283C7059004B6D95 /* Assets.xcassets */,
 				E321F528283C7059004B6D95 /* Preview Content */,
+				E3F9A37A283F46C600F65E5A /* ProfileView.swift */,
+				E3F9A37C283F5AF900F65E5A /* HomeView.swift */,
 			);
 			path = afl4amad;
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E321F525283C7057004B6D95 /* ContentView.swift in Sources */,
+				E3F9A37D283F5AF900F65E5A /* HomeView.swift in Sources */,
+				E3F9A37B283F46C600F65E5A /* ProfileView.swift in Sources */,
 				E321F523283C7057004B6D95 /* afl4amadApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
