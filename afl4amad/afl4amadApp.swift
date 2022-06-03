@@ -2,7 +2,7 @@
 //  afl4amadApp.swift
 //  afl4amad
 //
-//  Created by Lenny Indria on 24/05/22.
+//  Created by Averill Saladin on 24/05/22.
 //
 
 import SwiftUI

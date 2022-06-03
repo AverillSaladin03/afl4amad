@@ -2,7 +2,7 @@
 //  ProfileView.swift
 //  afl4amad
 //
-//  Created by Lenny Indria on 26/05/22.
+//  Created by Averill Saladin on 26/05/22.
 //
 
 import SwiftUI
@@ -14,17 +14,18 @@ struct ProfileView: View {
                 Image("valorant-background")
                     .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
                     .aspectRatio(contentMode: .fit)
+                    .ignoresSafeArea()
 
                 HStack {
                     Image("agent-fade-portrait")
                         .resizable(resizingMode: .stretch)
-                            .padding(.top, 25)
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 80, height: 80)
-                            .background(.white)
-                            .cornerRadius(50)
-                            .shadow(radius: 10)
-                            .offset(y: 90)
+                        .padding(.top, 25)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 80, height: 80)
+                        .background(.white)
+                        .cornerRadius(50)
+                        .shadow(radius: 10)
+                        .offset(y: UIScreen.main.bounds.height / 10)
                 }
             }
             Spacer()
@@ -35,7 +36,8 @@ struct ProfileView: View {
                     .accessibilityLabel("Nama")
                     .font(.title2)
                 Text("#XXXX")
-                    .fontWeight(.bold)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color("main-red"))
                     .accessibilityLabel("Tag")
                     .font(.caption)
                 
@@ -121,12 +123,13 @@ struct ProfileView: View {
                     }
                     .frame(width: 350, height: 120)
                     .clipped()
-                    .controlGroupStyle(/*@START_MENU_TOKEN@*/.automatic/*@END_MENU_TOKEN@*/)
+                    .controlGroupStyle(.automatic)
                 }
             }
-            .offset(y: 50)
+            .padding(.top, UIScreen.main.bounds.height / 16)
             Spacer()
         }
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
     }
 }
 
