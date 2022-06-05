@@ -53,8 +53,6 @@ struct AgentDetail: View {
         }) ?? 0
     }
     
-    
-    
     struct BackgroundImage: ViewModifier {
         func body(content: Content) -> some View {
             content
@@ -66,6 +64,88 @@ struct AgentDetail: View {
                 )
         }
     }
+    
+    var descriptionView : some View {
+        VStack{
+            Text("")
+            Image("rect-1-round")
+                .shadow(color: .white, radius: 1, x: 0, y: 2)
+            ScrollView {
+                VStack {
+                    Text("Description")
+                        .font(.title.bold())
+                        .foregroundColor(.white)
+                        .padding(.top)
+                    Text(agent.description)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.top)
+                    Text("\n")
+                    Text("Role")
+                        .font(.title.bold())
+                        .foregroundColor(.white)
+                    HStack{
+                        Image(uiImage: (agent.role?.displayIcon.fetch())!)
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                        Text(agent.role?.displayName.rawValue ?? "")
+                            .font(.title2.italic())
+                            .foregroundColor(.white)
+                    }
+                    .frame(alignment: .center)
+                    .padding([.leading, .trailing])
+                    
+                    Text("\n")
+                    Text("Abilities")
+                        .foregroundColor(.white)
+                        .font(.title.bold())
+                    
+                    ForEach (agent.abilities, id: \.self) {ability in
+                        HStack {
+                            VStack {
+                                Image(uiImage: (ability.displayIcon?.fetch())!)
+                                    .resizable()
+                                .frame(width: 75, height: 75)
+                                HStack {
+//                                    Text(ability.slot ?? "")
+//                                        .foregroundColor(.white)
+//                                        .font(.system(size: 20))
+//                                        .fontWeight(.bold)
+                                    Text("- \(ability.displayName)")
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 16))
+                                        .fontWeight(.light)
+                                }
+                            }
+                            Text(ability.description)
+                                .foregroundColor(.white)
+                                .font(.system(size: 14))
+                                .fontWeight(.regular)
+                                .padding(.leading)
+                        }
+                        .padding(.vertical)
+                    }
+                    
+                }
+                .padding(.top)
+            }
+        }
+        .padding()
+    }
+    
+    var descriptionSheet : some View {
+        ZStack {
+            Color.black
+                .padding()
+                .background(.black)
+                .ignoresSafeArea()
+                .background(.ultraThickMaterial)
+            opacity(0.2)
+            
+            descriptionView
+        }
+    }
+
     
     var body: some View {
         
@@ -104,55 +184,7 @@ struct AgentDetail: View {
                             .padding([.top, .bottom], 6)
                     }
                     .halfSheet(showSheet: $showSheet) {
-                        ZStack {
-                            Color.black
-                                .padding()
-                                .background(.black)
-                                .ignoresSafeArea()
-                                .background(.ultraThickMaterial)
-                            opacity(0.2)
-                            VStack{
-                                Text("")
-                                Image("rect-1-round")
-                                    .shadow(color: .white, radius: 1, x: 0, y: 2)
-                                ScrollView {
-                                    VStack {
-                                        Text("")
-                                        Text("Description")
-                                            .font(.title.bold())
-                                            .foregroundColor(.white)
-                                        Text("")
-                                        Text(agent.description)
-                                            .foregroundColor(.white)
-                                            .multilineTextAlignment(.center)
-                                        Text("\n")
-                                        Text("Role")
-                                            .font(.title.bold())
-                                            .foregroundColor(.white)
-                                        HStack{
-                                            Image(uiImage: (agent.role?.displayIcon.fetch())!)
-                                                .resizable()
-                                                .frame(width: 25, height: 25)
-                                            Text(agent.role?.displayName.rawValue ?? "")
-                                                .font(.title2.italic())
-                                                .foregroundColor(.white)
-                                        }
-                                        .frame(alignment: .center)
-                                        .padding([.leading, .trailing])
-                                        
-                                        Text("\n")
-                                        Text("Abilities")
-                                            .foregroundColor(.white)
-                                            .font(.title.bold())
-                                        
-                                        
-                                        
-                                    }
-                                    .padding(.top)
-                                }
-                            }
-                            .padding()
-                        }
+                        descriptionSheet
                     }
                     .background(.white)
                     .cornerRadius(50)
@@ -170,6 +202,6 @@ struct AgentDetail_Previews: PreviewProvider {
     static let model = Model()
     
     static var previews: some View {
-        AgentDetail(agent: Model().agentList[0]).environmentObject(model)
+        AgentDetail(agent: model.agentList[4]).environmentObject(model)
     }
 }

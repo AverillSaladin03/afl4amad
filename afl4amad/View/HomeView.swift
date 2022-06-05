@@ -21,7 +21,7 @@ struct HomeView: View {
             ScrollView {
                 VStack {
                     //  Trending Now
-                    HStack{
+                    HStack {
                         Text("Trending Now!")
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -57,18 +57,21 @@ struct HomeView: View {
                     .padding(.leading)
                     .textFieldStyle(.roundedBorder)
                     
-//                    List Navigation View
-                    List {
-                        ForEach (listAgent, id: \.self) { agent in
-                            NavigationLink{
+                    ScrollView {
+                        ForEach (listAgent, id: \.self) {agent in
+                            NavigationLink {
                                 AgentDetail(agent: agent)
                             } label: {
                                 AgentRow(agent: agent)
                             }
                         }
                     }
+                    .frame (height: 500)
+                    .background(.black)
+                    
                 } //VStack
             } // Scroll View
+            .navigationBarHidden(true)
         } //Navigation View
     } // Body
 } // Home View

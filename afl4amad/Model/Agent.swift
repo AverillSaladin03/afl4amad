@@ -13,6 +13,7 @@ import Foundation
 
 // MARK: - Datum
 struct Agent: Codable , Hashable {
+    var id: Int
     var uuid, displayName, description, developerName: String
     var characterTags: [String]?
     var displayIcon, displayIconSmall: String
@@ -27,7 +28,7 @@ struct Agent: Codable , Hashable {
     var voiceLine: VoiceLine
 
     enum CodingKeys: String, CodingKey {
-        case uuid, displayName
+        case uuid, displayName, id
         case description = "description"
         case developerName, characterTags, displayIcon, displayIconSmall, bustPortrait, fullPortrait, fullPortraitV2, killfeedPortrait, background, backgroundGradientColors, assetPath, isFullPortraitRightFacing, isPlayableCharacter, isAvailableForTest, isBaseContent, role, abilities, voiceLine
     }
@@ -46,7 +47,7 @@ struct Ability: Codable, Hashable{
     }
 }
 
-enum Slot: String, Codable, Hashable {
+enum Slot: String, Codable, Hashable{
     case ability1 = "Ability1"
     case ability2 = "Ability2"
     case grenade = "Grenade"
@@ -69,7 +70,7 @@ struct Role: Codable, Hashable {
     }
 }
 
-enum DisplayName: String, Codable, Hashable {
+enum DisplayName: String, Codable, Hashable{
     case controller = "Controller"
     case duelist = "Duelist"
     case initiator = "Initiator"

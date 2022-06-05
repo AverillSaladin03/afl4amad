@@ -32,38 +32,36 @@ struct AgentRow: View {
     var agent: Agent
     
     var body: some View {
-        HStack {
-            Image(uiImage: agent.displayIconSmall.fetch())
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 50, height: 50)
-                .cornerRadius(10)
-            
-            Text(agent.displayName)
-                .font(.headline)
-                .fontWeight(.bold)
-                
-            Spacer()
-            Image(uiImage: (agent.role?.displayIcon.fetch())!)
-                .resizable()
-                .frame(width: 25, height: 25)
-                .foregroundColor(.black)
-            
-            Text(agent.role?.displayName.rawValue ?? "")
-                .font(.callout)
-                .fontWeight(.semibold)
-                .foregroundColor(Color.white)
-            
+        VStack {
+            HStack {
+                Image(uiImage: agent.displayIconSmall.fetch())
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 40, height: 40)
+                    .cornerRadius(10)
+//                    .clipShape(Circle())
+                    .shadow(color: .gray, radius: 4, x: 0, y: 0)
+                Text("  ")
+                Text(agent.displayName)
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    
+                Spacer()
+                Image(uiImage: (agent.role?.displayIcon.fetch())!)
+                    .resizable()
+                    .frame(width: 10, height: 10)
+                    .padding(1)
+                    .background(.black.opacity(0.3))
+                    .clipShape(Circle())
+                Text(agent.role?.displayName.rawValue ?? "")
+                    .font(.system(size: 12, design: Font.Design.rounded))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.black.opacity(0.3))
+            }
+            .padding([.leading, .trailing])
+            .padding([.top, .bottom], 4.0)
+            .cornerRadius(20)
         }
-        .frame(height: 80)
-        .padding([.leading, .trailing])
-        .border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-        .shadow(color: .gray, radius: 2, x: 1, y: 1)
-//        .background(LinearGradient(
-//            gradient: Gradient(colors: [.white, .white, .black]), startPoint: .leading, endPoint: .trailing)
-//        )
-        .padding()
-        .cornerRadius(20)
     }
 }
 
@@ -71,7 +69,7 @@ struct AgentRow_Previews: PreviewProvider {
     static var listAgent = Model().agentList
     
     static var previews: some View {
-        AgentRow(agent: listAgent[3])
+        AgentRow(agent: listAgent[6])
     }
 }
  
