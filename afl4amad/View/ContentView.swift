@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var selected: Tab = .agent
-    @StateObject var model = Model()
     
     enum Tab {
         case agent
@@ -21,14 +20,12 @@ struct ContentView: View {
         TabView (selection: $selected){
             HomeView()
                 .tabItem{
-                    Image(systemName: "rectangle.stack.badge.person.crop.fill")
-                    Text("Agent")
+                    Label("Agent", systemImage: "rectangle.stack.badge.person.crop.fill")
                 }
                 .tag(Tab.agent)
             ProfileView()
                 .tabItem{
-                    Image(systemName: "person")
-                    Text("Profile")
+                    Label("Profile", systemImage: "person")
                 }
                 .tag(Tab.profile)
         }
@@ -37,10 +34,8 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var model = Model()
-    
     static var previews: some View {
-        ContentView().environmentObject(model)
+        ContentView().environmentObject(Model())
         
     }
 }

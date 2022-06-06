@@ -39,7 +39,6 @@ struct AgentRow: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 40, height: 40)
                     .cornerRadius(10)
-//                    .clipShape(Circle())
                     .shadow(color: .gray, radius: 4, x: 0, y: 0)
                 Text("  ")
                 Text(agent.displayName)
@@ -67,9 +66,10 @@ struct AgentRow: View {
 
 struct AgentRow_Previews: PreviewProvider {
     static var listAgent = Model().agentList
+    static var model = Model()
     
     static var previews: some View {
-        AgentRow(agent: listAgent[6])
+        AgentRow(agent: listAgent[0]).environmentObject(model)
     }
 }
  

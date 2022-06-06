@@ -9,12 +9,19 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var model: Model
+    @EnvironmentObject var model : Model
     @State private var searchAgent: String = ""
     
-    var listAgent : [Agent] {
-        model.agentList
+    var filteredAgent : [Agent] {
+        if(searchAgent.isEmpty){
+            return model.agentList
+        }else{
+            return model.agentList.filter{
+                $0.displayName.contains(searchAgent)
+            }
+        }
     }
+    
     
     var body: some View {
         NavigationView {
@@ -49,16 +56,17 @@ struct HomeView: View {
                     HStack{
                         TextField("Search", text: $searchAgent)
                             .disableAutocorrection(true)
-                            .shadow(color: .gray, radius: 2, x: 0, y: 0)
+                            .shadow(color: .black, radius: 2, x: 0, y: 0)
                         Image(systemName: "slider.horizontal.3")
                             .padding(.trailing)
+                            .opacity(0.3)
                             .foregroundColor(Color("main-red"))
                     }
                     .padding(.leading)
                     .textFieldStyle(.roundedBorder)
                     
                     ScrollView {
-                        ForEach (listAgent, id: \.self) {agent in
+                        ForEach (filteredAgent, id: \.self) { agent in
                             NavigationLink {
                                 AgentDetail(agent: agent)
                             } label: {
@@ -66,9 +74,7 @@ struct HomeView: View {
                             }
                         }
                     }
-                    .frame (height: 500)
-                    .background(.black)
-                    
+                    .padding([.top, .horizontal])
                 } //VStack
             } // Scroll View
             .navigationBarHidden(true)

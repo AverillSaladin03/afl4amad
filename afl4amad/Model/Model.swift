@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class Model: ObservableObject{
+final class Model: ObservableObject{
     @Published var agentList: [Agent] = load("agentData.json")
 }
 

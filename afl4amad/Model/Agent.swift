@@ -1,19 +1,6 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let agents = try? newJSONDecoder().decode(Agents.self, from: jsonData)
-
 import Foundation
-//
-//// MARK: - Agents
-//struct Agents: Codable, Hashable{
-//    var status: Int
-//    var agent: [Agent]
-//}
 
-// MARK: - Datum
-struct Agent: Codable , Hashable {
-    var id: Int
+struct Agent: Hashable, Codable {
     var uuid, displayName, description, developerName: String
     var characterTags: [String]?
     var displayIcon, displayIconSmall: String
@@ -28,14 +15,13 @@ struct Agent: Codable , Hashable {
     var voiceLine: VoiceLine
 
     enum CodingKeys: String, CodingKey {
-        case uuid, displayName, id
+        case uuid, displayName
         case description = "description"
         case developerName, characterTags, displayIcon, displayIconSmall, bustPortrait, fullPortrait, fullPortraitV2, killfeedPortrait, background, backgroundGradientColors, assetPath, isFullPortraitRightFacing, isPlayableCharacter, isAvailableForTest, isBaseContent, role, abilities, voiceLine
     }
 }
 
-// MARK: - Ability
-struct Ability: Codable, Hashable{
+struct Ability: Hashable, Codable {
     var slot: Slot
     var displayName, description: String
     var displayIcon: String?
@@ -47,7 +33,7 @@ struct Ability: Codable, Hashable{
     }
 }
 
-enum Slot: String, Codable, Hashable{
+enum Slot: String, Hashable, Codable {
     case ability1 = "Ability1"
     case ability2 = "Ability2"
     case grenade = "Grenade"
@@ -55,8 +41,7 @@ enum Slot: String, Codable, Hashable{
     case ultimate = "Ultimate"
 }
 
-// MARK: - Role
-struct Role: Codable, Hashable {
+struct Role: Hashable, Codable {
     var uuid: String
     var displayName: DisplayName
     var description: String
@@ -70,21 +55,19 @@ struct Role: Codable, Hashable {
     }
 }
 
-enum DisplayName: String, Codable, Hashable{
+enum DisplayName: String, Hashable, Codable {
     case controller = "Controller"
     case duelist = "Duelist"
     case initiator = "Initiator"
     case sentinel = "Sentinel"
 }
 
-// MARK: - VoiceLine
-struct VoiceLine: Codable, Hashable {
+struct VoiceLine: Hashable, Codable {
     var minDuration, maxDuration: Double
     var mediaList: [MediaList]
 }
 
-// MARK: - MediaList
-struct MediaList: Codable, Hashable {
+struct MediaList: Hashable, Codable {
     var id: Int
     var wwise: String
     var wave: String

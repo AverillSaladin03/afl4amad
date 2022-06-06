@@ -156,7 +156,7 @@ struct AgentDetail: View {
                         .resizable()
                         .scaledToFill()
                         .padding([.horizontal, .bottom])
-                        .offset(y: -75)
+                        .offset(y: -150)
                         .shadow(color: .black, radius: 8, x: 0, y: 0)
                 }
                 
@@ -191,6 +191,7 @@ struct AgentDetail: View {
                     .shadow(color: .black, radius: 8, x: 0, y: 0)
                 }
             }
+            .scaledToFill()
             .modifier(BackgroundImage())
             .background(LinearGradient(gradient: Gradient(colors: [Color("main-red"), .black]), startPoint: .top, endPoint: .bottom))
         }
