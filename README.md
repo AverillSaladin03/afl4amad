@@ -10,6 +10,11 @@ ValoGent is an application to show Valorant's Agents and see all of their descri
 ### 📹 Demonstration Video
 https://youtu.be/FXJnEm4fb2Q
 
+
 ---
+
+https://user-images.githubusercontent.com/76471341/172275893-589d507f-3fd3-42eb-97b3-00d12311e883.mov
+
+
 
 <p align="center"> &copy; 2022 BYTe</p>
